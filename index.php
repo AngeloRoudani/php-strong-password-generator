@@ -9,18 +9,24 @@
     <title>Strong Password</title>
 </head>
 <body>
+<body>
     <?php 
         $userInput = $_GET['number'];
+        $charGroup = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWYXZ$%&!@#*+-'
 
-        function generaPassword ($userInput) {
+        function generaPassword ($input, $string) {
+            
+            return $password = substr(str_shuffle($string), 0, $input);
 
         }
+
+        $newPassword = generaPassword($userInput, $charGroup);
     ?>    
 
     <main>
         <div class="container">
             <div class="row">
-                <form class="row g-3 justify-content-center">
+                <form class="row g-3 justify-content-center" action="index.php" method="GET">
                     
                     <div class="col-2">
                         <label for="inputNumber" class="visually-hidden">Numero di caratteri</label>
@@ -31,10 +37,15 @@
                     </div>
 
                 </form>
+
+                <div>La tua nuova password è:<?php $newPassword?></div>
             </div>
         </div>
 
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+</body>
+</html>
+    
 </body>
 </html>
