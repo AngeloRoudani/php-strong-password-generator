@@ -20,6 +20,13 @@
         include 'function.php';
 
         $newPassword = generaPassword($userNumber, $charGroup);
+        session_start();
+
+        $_SESSION['password'] = $newPassword;
+
+        if (isset($_GET['number'])) {
+            header('Location: passwordPage.php');
+        }
     ?>    
 
     <main>
@@ -36,8 +43,6 @@
                     </div>
 
                 </form>
-
-                <div class="col-4 bg-white m-auto">La tua nuova password è: <?php echo $newPassword; ?></div>
             </div>
         </div>
 
