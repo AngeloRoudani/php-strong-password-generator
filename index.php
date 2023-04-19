@@ -12,7 +12,11 @@
 <body>
     <?php 
         $userInput = $_GET['number'];
-        $charGroup = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWYXZ$%&!@#*+-'
+        var_dump($userInput);
+        $userNumber = intval($userInput);
+        var_dump($userNumber);
+
+        $charGroup = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWYXZ$%&!@#*+-';
 
         function generaPassword ($input, $string) {
             
@@ -20,7 +24,7 @@
 
         }
 
-        $newPassword = generaPassword($userInput, $charGroup);
+        $newPassword = generaPassword($userNumber, $charGroup);
     ?>    
 
     <main>
@@ -38,7 +42,7 @@
 
                 </form>
 
-                <div>La tua nuova password è:<?php $newPassword?></div>
+                <div class="col-4 bg-white m-auto">La tua nuova password è:<?php $newPassword; ?></div>
             </div>
         </div>
 
